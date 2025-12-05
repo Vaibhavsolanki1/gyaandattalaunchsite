@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyaandatta - Coming Soon</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Background Image */
+            background: linear-gradient(rgba(10, 25, 60, 0.7), rgba(30, 60, 100, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); 
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        /* Timer Styling */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .time-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            width: 110px;
+        }
+
+        .time-box span { display: block; }
+
+        .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* --- SOCIAL MEDIA SECTION --- */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Increased gap for better look */
+        }
+
+        .social-icon {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05); /* Subtle circle background */
+        }
+
+        /* Special Brand Colors on Hover */
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: rgba(255,255,255,0.1);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Specific colors for specific apps */
+        .social-icon.insta:hover { color: #E1306C; }
+        .social-icon.whatsapp:hover { color: #25D366; }
+        .social-icon.youtube:hover { color: #FF0000; }
+
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .glass-container { padding: 2rem 1rem; }
+            h1 { font-size: 2.2rem; }
+            .countdown { gap: 0.8rem; }
+            .time-box { width: 75px; padding: 1rem 0.5rem; }
+            .number { font-size: 1.6rem; }
+            .social-links { gap: 15px; }
+            .social-icon { font-size: 1.6rem; width: 50px; height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/3145/3145765.png" alt="Gyaandatta Logo" class="logo-img">
+
+        <h1>Gyaandatta</h1>
+        <p class="subtitle">Your new study companion is loading...</p>
+
+        <div class="countdown">
+            <div class="time-box">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Mins</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Secs</span>
+            </div>
+        </div>
+
+        <div class="social-links">
+            
+            <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="social-icon insta" title="Follow us on Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://chat.whatsapp.com/YOUR_INVITE_CODE" target="_blank" class="social-icon whatsapp" title="Join our WhatsApp Community">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="social-icon youtube" title="Subscribe on YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Gyaandatta. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+        const launchDate = new Date("Dec 31, 2025 00:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".countdown").innerHTML = "<h2>We are Live!</h2>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
